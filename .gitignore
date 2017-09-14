@@ -101,7 +101,7 @@ Makefile.in
 #/apps/dhcp-4.2.7/
 #/apps/dhcpd-pools-2.25/
 /apps/httpd-2.2.29/
-/apps/libxml2-2.7.8/
+#/apps/libxml2-2.7.8/
 #/apps/nginx-1.8.1/
 /apps/ntp-4.2.8p3/
 #/apps/openssl-1.0.1j/
