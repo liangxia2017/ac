@@ -1,0 +1,18 @@
+#ifndef _CAPWAP_MSG_H
+#define _CAPWAP_MSG_H
+
+#define NTP_CLIENT_CONFIG_MSG 1
+#define SNMP_CONFIG_MSG 2
+#define RADIUS_CONFIG_MSG 3
+#define AS_CONFIG_MSG 4
+#define VERSION_CONFIG_MSG 5
+#define SYSLOG_CONFIG_MSG 6
+#define HOT_BACK_CONFIG_MSG 7
+#define MAC_FILTER_CONFIG_MSG 8
+#define UP_LINK_CONFIG_MSG 9
+#define AP_REPORT_MSG    10
+#define AP_LOST_MSG    11
+#define CENT_AUTH_MSG    12
+#define SET_TUNNEL_MSG    13 
+#endif
+
