@@ -2,6 +2,8 @@
 .*.swp
 *.rej
 *.Po
+.deps/
+doc/
 
 # Prerequisites
 *.d
@@ -104,7 +106,7 @@ Makefile.in
 /apps/openssl-1.0.1j/
 /apps/pcre-8.35/
 /apps/php-5.4.45/
-/apps/sqlite-autoconf-3080403/
+#/apps/sqlite-autoconf-3080403/
 #/apps/sshpass-1.05/
 /apps/web_tools/htmls
 
