@@ -1,0 +1,227 @@
+.TH DHCPD-POOLS "1" "2012-11-25" "@PACKAGE_STRING@" "User Commands"
+.SH NAME
+dhcpd-pools \- ISC dhcpd pools usage analysis
+.SH SYNOPSIS
+.B dhcpd-pools
+[options]
+.SH DESCRIPTION
+The program analyses ISC dhcpd shared network and pool usage and outputs the
+results in a format selected by user.
+.SH OUTPUT FIELDS
+.TP
+.I "shared net name"
+Name of the shared-network for the range.
+.TP
+.I "first ip"
+First IP in lease pool range.
+.TP
+.I "last ip"
+Last IP in lease pool range.
+.TP
+.I "max"
+Number of IPs which exist in a pool, shared network or all together.
+.TP
+.I "cur"
+Number of leases currently in use.
+.TP
+.I "percent"
+Percent of IPs currently in use compared to max.
+.TP
+.I "touch"
+Number of IP's which appear in the lease file, but who's leases have expired.
+A touched IP is either expired or abandoned.  The touched IP count is
+somewhat misleading when you try to determine if an IP pool is big enough; it
+is a better indicator of whether a pool is too large.
+.TP
+.I "t+c"
+The sum of Touched and Currently in-use leases.
+.TP
+.I "t+c perc"
+Percent of IPs either touched or currently in use, compared to max.
+.TP
+.I "bu"
+Failover pair can allocate these addresses.  The count appears only if there
+is failover configuration.
+.TP
+.I "bu perc"
+Percent of addresses that failover pair can allocate.  The percent appears
+only if there is failover configuration.
+.SH OPTIONS
+.TP
+\fB\-c\fR, \fB\-\-config\fR=\fIFILE\fR
+Path to the dhcpd.conf file.  If the dhcpd.conf has include files they
+can be analysed separately, that can be useful when trying to understand
+or monitor subset of data.
+.TP
+\fB\-l\fR, \fB\-\-leases\fR=\fIFILE\fR
+Path to the dhcpd.leases file.
+.TP
+\fB\-s\fR, \fB\-\-sort\fR=\fI[nimcptTe]\fR
+Sort ranges by chosen fields as a sorting keys.  Maximum of five sort keys
+can be defined.  Keys weight from left to right, i.e., if more weighting keys
+are equal next one is used.  The IP field is default sort key.
+.TP
+\fB\-r\fR, \fB\-\-reverse\fR
+Sort results in reverse order.
+.TP
+\fB\-f\fR, \fB\-\-format\fR=\fI[thHcxXjJ]\fR
+Output format.
+Text
+.RI ( t ).
+Standard html
+.RI ( h )
+outputs only the HTML tables, and is useful for embedding more complex web
+pages.  Full-html
+.RI ( H )
+provides complete HTML headers, etc., including in-line CSS.  The
+.RI ( c )
+stands for comma-separated values.  Output format xml
+.RI ( x )
+is similar to the dhcpstatus Perl module output.  The extended xml
+.RI ( X )
+format will print ethernet address details.  The
+.RI ( j )
+will output in json format, which can be extended with
+.RI ( J )
+to include ethernet address.
+.IP
+The default format is
+.IR @OUTPUT_FORMAT@ .
+.TP
+\fB\-o\fR, \fB\-\-output\fR=\fIFILE\fR
+.I File
+where output is written.  Default is stdout.
+.TP
+\fB\-L\fR, \fB\-\-limit\fR=\fINR\fR
+The
+.I NR
+will limit what will be printed.  Syntax is similar to
+.IR chmod (1)
+permission string.  The
+.I NR
+limit string uses two digits which vary between
+.IR 0 \ to \ 7 .
+The first digit determines which headers to display, and the second digit
+determines which numeric analysis tables to include in the output.  The
+following values are "OR'd" together to create the desired output.  The
+default is
+.IR @OUTPUT_LIMIT@ .
+.PP
+.RS
+.PD 0
+.TP
+.B 01
+Print ranges
+.TP
+.B 02
+Print shared networks
+.TP
+.B 04
+Print total summary
+.TP
+.B 10
+Print range header
+.TP
+.B 20
+Print shared network header
+.TP
+.B 40
+Print total summary header
+.PD
+.RE
+.IP
+The output limit for total summary has special meaning in
+.B \-\-warning
+and
+.B \-\-critical
+alarming context.  When the alarming is in use, and total is not wanted
+to be seen then in the case of alarming returning success nothing is
+printed.
+.TP
+\fB\-\-warning\fR=\fIpercent\fR
+Turn on alarm output format, and specify percentage number which will
+cause an alarm.  If either a range or shared network will exceed
+warning level return value of the command is
+.BR 1 .
+If only range monitoring is needed one can use limit option for scoping,
+for example
+.IR \-L10 .
+To monitor shared network only the limit would be
+.IR \-L20 .
+If warning percentage is not specified it defaults to
+.BR @ALARM_WARN@ .
+The
+.I percent
+argument allows fractions, e.g., 88.8, to be used.
+.TP
+\fB\-\-critical\fR=\fIpercent\fR
+The option is similar to warning, with exception of return value which
+is
+.BR 2 .
+If critical percentage is not specified it defaults to
+.BR @ALARM_CRIT@ .
+.TP
+\fB\-\-minsize\fR=\fIsize\f
+Ignore ranges and shared networks that are smaller or equal to the
+defined size.  This option is meaningful only in context of alarming, and
+will intented to supress for example single host ranges.  By default this
+option is not in use.
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+Print version information to standard output and exit successfully.
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Print help to standard output and exit successfully.
+.SH EXAMPLES
+.TP
+Print ranges header, and analysis.
+$ dhcpd-pools \-L 11 \-c dhcpd.conf \-l dhcpd.leases
+.br
+Ranges:
+.br
+shared net name [...]
+.TP
+Print shared networks and totals, both headers and results
+$ dhcpd-pools \-L 66 \-c dhcpd.conf \-l dhcpd.leases shared net name
+.br
+[...]
+.TP
+Alarming
+$ dhcpd-pools \-c dhcpd.conf \-l dhcpd.leases \-\-critical 80.1 \-\-warning 75
+.br
+CRITICAL: dhcpd-pools: Ranges; crit: 14 warn: 22 ok: 220 Shared nets; crit: 1 warn: 0 ok: 4
+.IP
+$ dhcpd-pools \-c dhcpd.conf \-l dhcpd.leases \-L 22 \-\-critical 70 \-\-warning 50
+.br
+[no-output]
+.br
+Supress printing OK, and make alarm only to go off if shared networks
+exceed critial or warning levels.
+.SH FILES
+.TP
+@DHCPDCONF_FILE@
+ISC dhcpd configuration file.
+.TP
+@DHCPDLEASE_FILE@
+ISC dhcpd lease file.
+.SH AUTHORS
+Original design by Sami Kerola.
+.br
+XML support by Dominic Germain, Sogetel inc.
+.br
+IPv6 support by Cheer Xiao.
+.PP
+The software has FreeBSD License.
+.SH "REPORTING BUGS"
+Report bugs to
+.MT @PACKAGE_BUGREPORT@
+@PACKAGE_MAINTAINER@
+.ME
+.br
+.UR @PACKAGE_URL@
+Home page
+.UE
+.SH "SEE ALSO"
+.BR dhcpd.leases (5),
+.BR dhcpd.conf (5),
+.BR chmod (1)
