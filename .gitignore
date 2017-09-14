@@ -1,6 +1,7 @@
 *.o
 .*.swp
 *.rej
+*.Po
 
 # Prerequisites
 *.d
@@ -94,15 +95,16 @@ Makefile.in
 !/apps/
 !.gitignore
 
-/apps/dhcp-4.2.7/
-/apps/dhcpd-pools-2.25/
+#/apps/dhcp-4.2.7/
+#/apps/dhcpd-pools-2.25/
 /apps/httpd-2.2.29/
 /apps/libxml2-2.7.8/
-/apps/nginx-1.8.1/
+#/apps/nginx-1.8.1/
 /apps/ntp-4.2.8p3/
 /apps/openssl-1.0.1j/
 /apps/pcre-8.35/
 /apps/php-5.4.45/
 /apps/sqlite-autoconf-3080403/
-/apps/sshpass-1.05/
-/apps/web_tools/
+#/apps/sshpass-1.05/
+/apps/web_tools/htmls
+
