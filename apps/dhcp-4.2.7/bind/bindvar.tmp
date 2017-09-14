@@ -1,0 +1,2 @@
+binddir=/opt/micro_ac/apps/dhcp-4.2.7/bind
+GMAKE=gmake
