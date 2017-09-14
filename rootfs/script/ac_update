@@ -1,0 +1,87 @@
+#!/bin/sh
+. /tmp/runtime/config/ac_sysinfo.conf
+
+pkill -9 httpd
+pkill -9 php-fpm
+pkill -9 nginx
+pkill -9 capwapd
+pkill -9 locating
+pkill -9 dhcpd
+pkill -9 bftpd 
+
+db_version_new=$DB_VER
+soft_version_new=$SOFT_VER
+
+. /ac/config/ac_sysinfo.conf
+if [ $DB_VER -le $db_version_new ];then  
+			for n_new in $(/ac/sqlite/bin/sqlite3 /tmp/runtime/db/ac.s3db "select name from sqlite_master where type='table'")
+			do
+				#表同步
+				/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select name from sqlite_master where type='table'" |grep $n_new
+				if [ $? = 1 ];then
+					/ac/sqlite/bin/sqlite3 /tmp/runtime/db/ac.s3db "select sql from sqlite_master where type='table' and name='$n_new'" > /tmp/tmp_sql
+					echo ";" >> /tmp/tmp_sql
+					/ac/sqlite/bin/sqlite3 -cmd ".read /tmp/tmp_sql" /ac/db/ac.s3db ""
+					continue
+				fi
+			
+				#字段同步
+				if [ -n "$n_new" ];then
+					old_column_num=`/ac/sqlite/bin/sqlite3   /ac/db/ac.s3db  "PRAGMA table_info($n_new)" | wc -l`
+					j=1
+					for table_info_new in $(/ac/sqlite/bin/sqlite3   /tmp/runtime/db/ac.s3db  "PRAGMA table_info($n_new)")
+					do
+						if [ $j -le $old_column_num ];then
+							let "j=$j+1"
+							continue
+						fi
+
+						column_name_new=`echo $table_info_new | cut -d "|" -f 2`
+						column_type_new=`echo $table_info_new | cut -d "|" -f 3`
+						/ac/sqlite/bin/sqlite3   /opt/micro_ac/runtime/db/ac.s3db "alter table $n_new add column $column_name_new $column_type_new"
+					done
+				fi	
+			done
+			/ac/sqlite/bin/sqlite3 -cmd ".read /tmp/runtime/config/ac_db.ndm.sql " /ac/db/ac.s3db "" > /dev/null 2>&1
+			/ac/sqlite/bin/sqlite3 -cmd ".read /tmp/runtime/config/triger.sql " /ac/db/ac.s3db "" > /dev/null 2>&1
+			cp -Rf /opt/micro_ac/runtime/db/*  /tmp/runtime/db/
+else
+	cp -Rf /ac/db/*  /tmp/runtime/db/
+fi
+
+
+cp -Rf /ac/config/  /tmp/config_tmp
+cp -Rf /ac/data  /tmp/data_tmp
+#cp -Rf /ac/bftpd/man/.u  /tmp/runtime/bftpd/man/
+cp -Rf /ac/htmls/map/  /tmp/runtime/ac/htmls/
+cp -Rf /ac/htmls/images/man_logo.jpg  /tmp/runtime/ac/htmls/images/
+
+rm -rf /opt/micro_ac/runtime
+mv /tmp/runtime  /opt/micro_ac/
+
+cp -Rf /opt/micro_ac/runtime/config/*.sql /tmp/config_tmp/
+rm -rf /opt/micro_ac/runtime/config
+mv -f /tmp/config_tmp/ /opt/micro_ac/runtime/config
+
+rm -rf /opt/micro_ac/runtime/data
+mv -f /tmp/data_tmp/ /opt/micro_ac/runtime/data
+
+/ac/sbin/write_block -v $soft_version_new
+if [ $DB_VER -le $db_version_new ];then  
+	/ac/sbin/write_block -d $db_version_new
+fi
+
+#/ac/script/ac_start
+systemctl reboot
+reboot	  
+	  
+	  
+	  
+
+
+
+
+
+
+
+

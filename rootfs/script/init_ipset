@@ -1,0 +1,18 @@
+#!/bin/sh
+
+ipset destroy
+
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select id,start_ip,end_ip from ac_dhcp_server where option60=''")
+do
+	if [ -z "$n" ];then
+		break
+	fi
+	id=`echo $n|cut -d "|" -f 1`
+	sip=`echo $n|cut -d "|" -f 2`
+	eip=`echo $n|cut -d "|" -f 3`
+	
+	ipset -! create user$id bitmap:ip range $sip-$eip timeout 43200
+	#ipset -! create user"$id"_authed bitmap:ip range $sip-$eip timeout 43200
+	iptables -t nat -I PREROUTING -m set --match-set user$id src -j ACCEPT
+	
+done

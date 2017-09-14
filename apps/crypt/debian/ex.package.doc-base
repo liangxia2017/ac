@@ -1,0 +1,22 @@
+Document: crypt-xor
+Title: Debian crypt-xor Manual
+Author: <insert document author here>
+Abstract: This manual describes what crypt-xor is
+ and how it can be used to
+ manage online manuals on Debian systems.
+Section: unknown
+
+Format: debiandoc-sgml
+Files: /usr/share/doc/crypt-xor/crypt-xor.sgml.gz
+
+Format: postscript
+Files: /usr/share/doc/crypt-xor/crypt-xor.ps.gz
+
+Format: text
+Files: /usr/share/doc/crypt-xor/crypt-xor.text.gz
+
+Format: HTML
+Index: /usr/share/doc/crypt-xor/html/index.html
+Files: /usr/share/doc/crypt-xor/html/*.html
+
+  

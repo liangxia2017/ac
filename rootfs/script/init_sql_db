@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ ! -f /ac/db/ac.s3db ];then
+	/ac/sqlite/bin/sqlite3 -cmd ".read /ac/config/ac_db.ndm.sql" /ac/db/ac.s3db ""
+	/ac/sqlite/bin/sqlite3 -cmd ".read /ac/config/triger.sql" /ac/db/ac.s3db ""
+	
+	/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "insert into ap_group values(1,'unknown',32,0)"
+	/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "insert into ac_network_config values(1,0,'eth0',1,'','',123,'','')"
+	/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "insert into ac_network_config values(2,1,'eth0',1,'192.168.1.21','255.255.255.0',3232235776,'','')"
+	/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "insert into ac_user_info values(1,'admin','papAq5PwY/QQM','1')"
+fi
+
+if [ -f /ac/data/ac_portal/db/ac_portal.ndm.sql ];then
+	if [ ! -f /ac/data/ac_portal/db/ac_portal.s3db ];then
+		/ac/sqlite/bin/sqlite3 -cmd ".read /ac/data/ac_portal/db/ac_portal.ndm.sql" /ac/data/ac_portal/db/ac_portal.s3db ""
+	fi
+fi

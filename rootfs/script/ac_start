@@ -1,0 +1,63 @@
+#!/bin/sh
+#建立短链接
+if [ ! -h /ac ];then
+	/opt/micro_ac/runtime/script/install_ac
+fi
+mkdir -p /opt/micro_ac/tmp
+mkdir -p /opt/micro_ac/ap_log
+rm -rf /opt/micro_ac/tmp/*
+
+pkill -9 httpd 
+pkill -9 php-fpm
+pkill -9 nginx
+pkill -9 dhcpd 
+pkill -9 bftpd 
+pkill -9 capwapd 
+pkill -9 locating
+pkill -9 dhclient
+#初始化数据库
+/ac/script/init_sql_db
+chmod 777 -R /ac/*
+
+if [ ! -f /ac/config/cloud_ac ];then 
+	modprobe l2tp_eth
+	modprobe l2tp_ip
+	
+	#初始化网卡
+	/ac/script/mode_sw
+	/ac/script/init_eth_scr
+	/ac/script/init_route_scr
+	/ac/script/init_nat_scr
+	/ac/script/mode_sw
+
+	#初始化系统时钟
+	/ac/script/init_ntp_scr
+	
+	#初始化dhcp-pool
+	/ac/script/init_dhcp_pool_scr
+fi
+#httpd
+#/ac/apache/bin/httpd -f /ac/apache/conf/httpd.conf
+/ac/php/sbin/php-fpm -c /ac/php/etc/php.ini -R
+/ac/nginx/sbin/nginx 
+
+#ftp
+/ac/bftpd/sbin/bftpd -d -c /ac/bftpd/bftpd.conf
+
+#capwapd
+/ac/sbin/capwapd &
+
+ulimit -n 200000
+sysctl  net.ipv4.tcp_tw_recycle=1
+
+#监控
+cd /ac/script/
+cp -Rf monitor_ps ac_update system_restore /opt/micro_ac/tmp
+cp -Rf /ac/config/ac_sysinfo.conf /opt/micro_ac/tmp
+touch /opt/micro_ac/tmp/system_upg.conf 
+pidof -x monitor_ps
+if [ $? -ne 0 ];then
+	/opt/micro_ac/tmp/monitor_ps &
+fi
+
+/ac/script/init_crond_scr

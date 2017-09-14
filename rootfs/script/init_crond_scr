@@ -1,0 +1,15 @@
+#!/bin/sh
+rm -f /opt/micro_ac/tmp/ac_crond.conf
+echo "10 4 31 */2 * find /opt/micro_ac/ap_log/ -name "*log*" -ctime +60 | xargs rm -f" > /opt/micro_ac/tmp/ac_crond.conf
+echo "15 4 15 * * /usr/sbin/reboot" >> /opt/micro_ac/tmp/ac_crond.conf
+#echo "10 4 * * * /ac/apache/bin/httpd -k restart -f /ac/apache/conf/httpd.conf" >> /opt/micro_ac/tmp/ac_crond.conf
+echo "10 4 * * * /ac/nginx/sbin/nginx -s reload" >> /opt/micro_ac/tmp/ac_crond.conf
+
+n=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select time_reboot_sw,timer from ac_basic_conf"`
+sw=`echo $n|cut -d "|" -f 1`
+time=`echo $n|cut -d "|" -f 2`
+if [ $sw -eq 1 ];then
+	echo "0 $time * * * /ac/sqlite/bin/sqlite3 /ac/db/ac.s3db \"update ap_info set config_status = x'10000003010100' where status=1\"" >> /opt/micro_ac/tmp/ac_crond.conf
+fi
+
+crontab -u root /opt/micro_ac/tmp/ac_crond.conf

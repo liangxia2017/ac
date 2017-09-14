@@ -1,0 +1,18 @@
+#!/bin/sh
+#≥ı ºªØac portal
+sw=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select ac_portal_sw from ac_basic_conf"`
+IPLIST=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select portal_white_list from ac_basic_conf"`
+iptables -t nat -F PREROUTING
+ipset destroy
+if [ $sw = "1" ];then
+	ip=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select redirect_ip from ac_basic_conf"`
+	iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to $ip
+	/ac/script/init_ipset
+	
+	if [ $IPLIST != "" ];then
+		for i in $(echo $IPLIST | tr -s "%" " ")
+		do
+			iptables -t nat -I PREROUTING -d $i -j ACCEPT
+		done
+	fi
+fi

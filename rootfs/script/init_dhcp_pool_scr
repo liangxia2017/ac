@@ -1,0 +1,100 @@
+#!/bin/sh
+
+rm -f /opt/micro_ac/tmp/dhcpd.conf
+touch /opt/micro_ac/tmp/dhcpd.conf
+. /ac/script/function
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select DISTINCT option60 from ac_dhcp_server")
+do
+	if [ -z "$n" ];then
+		break
+	fi
+	echo "class \"$n\" {" >> /opt/micro_ac/tmp/dhcpd.conf
+	echo "  match if substring (option vendor-class-identifier, 0, 2) = $n;}" >> /opt/micro_ac/tmp/dhcpd.conf
+	option82_str=" and substring (option vendor-class-identifier, 0, 2) != $n"
+	option82_str_all+=$option82_str
+done
+
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select DISTINCT option82 from ac_dhcp_server")
+do
+	if [ -z $n ];then
+		break
+	fi
+	echo "class \"$n\" {" >> /opt/micro_ac/tmp/dhcpd.conf
+	num=$(echo $n | grep -o ':' | wc -l)
+	let num+=1
+	if [ -z option82_str_all ];then
+	echo "  match if substring (option agent.circuit-id, 0, $num) = $n;}" >> /opt/micro_ac/tmp/dhcpd.conf
+	else
+	echo "  match if (substring (option agent.circuit-id, 0, $num) = $n $option82_str_all);}" >> /opt/micro_ac/tmp/dhcpd.conf
+	fi
+done
+
+
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select DISTINCT network_card from ac_network_config where type=0 and get_ip_method=1")
+do
+	if [ -z "$n" ];then
+		break
+	fi
+	if_name=`echo $n|cut -d "|" -f 1`
+
+	echo "shared-network $if_name {" >> /opt/micro_ac/tmp/dhcpd.conf
+	echo "subnet 4.3.2.0 netmask 255.255.255.0{}" >> /opt/micro_ac/tmp/dhcpd.conf
+	
+	for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select ip from ac_network_config where network_card like '$if_name%' and get_ip_method=1 and type=1")
+	do
+		if_ip=`echo $n|cut -d "|" -f 1`		
+					for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select * from ac_dhcp_server where gateway='$if_ip'")
+					do
+						if [ -z $n ];then
+							break
+						fi
+						start_ip=`echo $n|cut -d "|" -f 2`
+						end_ip=`echo $n|cut -d "|" -f 3`
+						mask=`echo $n|cut -d "|" -f 4`
+						gateway=`echo $n|cut -d "|" -f 5`
+						dns=`echo $n|cut -d "|" -f 6`
+						lease=`echo $n|cut -d "|" -f 7`
+						option43=`echo $n|cut -d "|" -f 8`
+						option60=`echo $n|cut -d "|" -f 9`
+						option82=`echo $n|cut -d "|" -f 11`
+						
+						netid=`shift_network $start_ip/$mask`
+						echo "subnet $netid netmask $mask {" >> /opt/micro_ac/tmp/dhcpd.conf
+						echo "max-lease-time $lease;" >> /opt/micro_ac/tmp/dhcpd.conf
+						echo "default-lease-time $lease;" >> /opt/micro_ac/tmp/dhcpd.conf
+						echo "option routers $gateway;" >> /opt/micro_ac/tmp/dhcpd.conf
+						echo "option subnet-mask $mask;" >> /opt/micro_ac/tmp/dhcpd.conf
+						
+						if [ ! -z $dns ];then
+							echo "option domain-name-servers $dns;" >> /opt/micro_ac/tmp/dhcpd.conf
+						fi
+						if [ ! -z $option43 ];then
+							echo "option vendor-encapsulated-options $option43;" >> /opt/micro_ac/tmp/dhcpd.conf
+						fi
+						
+						if [ -z $option60 ] && [ -z $option82 ];then 
+							echo "range $start_ip $end_ip;}" >> /opt/micro_ac/tmp/dhcpd.conf
+						elif [ ! -z $option82 ];then
+							echo "pool { allow members of \"$option82\";" >> /opt/micro_ac/tmp/dhcpd.conf
+							echo "range $start_ip $end_ip; }}" >> /opt/micro_ac/tmp/dhcpd.conf
+						elif [ ! -z $option60 ];then
+							echo "pool { allow members of \"$option60\";" >>/opt/micro_ac/tmp/dhcpd.conf
+							echo "range $start_ip $end_ip; }}" >> /opt/micro_ac/tmp/dhcpd.conf
+						fi
+					
+					done
+	done
+
+	echo "}" >> /opt/micro_ac/tmp/dhcpd.conf
+done
+touch /tmp/dhcpd.leases
+
+pkill -9 dhcpd
+/ac/dhcpd/sbin/dhcpd -q -4 -cf /opt/micro_ac/tmp/dhcpd.conf -lf /tmp/dhcpd.leases
+
+pidof dhcpd
+if [ $? = 0 ];then
+	/ac/script/init_iptables_scr
+else
+	exit -1
+fi

@@ -1,0 +1,58 @@
+#!/bin/sh
+cd /tmp
+if [ -f /tmp/ac_portal.img ];then
+	tar -xzvf ac_portal.img
+fi
+
+if [ -d /tmp/ac_portal ];then
+
+				for n_new in $(/ac/sqlite/bin/sqlite3 /tmp/ac_portal/db/ac_portal.s3db "select name from sqlite_master where type='table'")
+			do
+
+				#表同步
+				/ac/sqlite/bin/sqlite3 /ac/data/ac_portal/db/ac_portal.s3db "select name from sqlite_master where type='table'" |grep $n_new
+				if [ $? = 1 ];then
+					/ac/sqlite/bin/sqlite3 /tmp/ac_portal/db/ac_portal.s3db "select sql from sqlite_master where type='table' and name='$n_new'" > /tmp/tmp_sql
+					echo ";" >> /tmp/tmp_sql
+					/ac/sqlite/bin/sqlite3 -cmd ".read /tmp/tmp_sql" /ac/data/ac_portal/db/ac_portal.s3db ""
+					continue
+				fi
+			
+				#字段同步
+				if [ -n "$n_new" ];then
+					old_column_num=`/ac/sqlite/bin/sqlite3   /ac/data/ac_portal/db/ac_portal.s3db  "PRAGMA table_info($n_new)" | wc -l`
+					j=1
+					for table_info_new in $(/ac/sqlite/bin/sqlite3   /tmp/ac_portal/db/ac_portal.s3db  "PRAGMA table_info($n_new)")
+					do
+						if [ $j -le $old_column_num ];then
+							let "j=$j+1"
+							continue
+						fi
+
+						column_name_new=`echo $table_info_new | cut -d "|" -f 2`
+						column_type_new=`echo $table_info_new | cut -d "|" -f 3`
+						/ac/sqlite/bin/sqlite3   /ac/data/ac_portal/db/ac_portal.s3db "alter table $n_new add column $column_name_new $column_type_new"
+					done
+				fi	
+			done
+			
+	cp -f /opt/micro_ac/runtime/data/ac_portal/db/ac_portal.s3db /tmp/
+	rm -rf /opt/micro_ac/runtime/data/ac_portal
+	mv -f /tmp/ac_portal /opt/micro_ac/runtime/data/
+	cp -f /tmp/ac_portal.s3db /opt/micro_ac/runtime/data/ac_portal/db
+	if [ -f /ac/data/ac_portal/db/ac_portal.ndm.sql ];then
+		if [ ! -f /ac/data/ac_portal/db/ac_portal.s3db ];then
+			/ac/sqlite/bin/sqlite3 -cmd ".read /ac/data/ac_portal/db/ac_portal.ndm.sql" /ac/data/ac_portal/db/ac_portal.s3db ""
+		fi
+	fi
+fi	  
+	  
+
+
+
+
+
+
+
+
+

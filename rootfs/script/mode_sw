@@ -1,0 +1,25 @@
+#!/bin/sh
+#ip link set br_tunnel down
+#ip link delete br_tunnel type bridge
+ip link add br_tunnel type bridge
+ip link set br_tunnel up
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select DISTINCT tunnel_out,central_forward_mode from ac_basic_conf")
+do
+	if [ -z "$n" ];then
+		break
+	fi	
+	tunnel_out=`echo $n|cut -d "|" -f 1`
+	central_forward_mode=`echo $n|cut -d "|" -f 2`
+	
+	if [ $central_forward_mode = 0 ];then
+	/sbin/ip link show $tunnel_out |grep master 
+	if [ $? != 0 ];then
+	/sbin/ip link set $tunnel_out master br_tunnel
+	fi
+	elif [ $central_forward_mode = 1 ];then
+	/sbin/ip link show $tunnel_out |grep master 
+	if [ $? = 0 ];then
+	/sbin/ip link set $tunnel_out nomaster 
+	fi
+	fi	
+done

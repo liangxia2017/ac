@@ -1,0 +1,13 @@
+#!/bin/sh
+rm -f /opt/micro_ac/tmp/ntp.conf
+touch /opt/micro_ac/tmp/ntp.conf
+pkill -9 ntpd
+server=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select ntp_server_ip from ac_basic_conf"`
+if [ -n $server ];then
+	/ac/ntp/bin/ntpdate $server
+fi
+
+echo "server 127.127.1.0 minpoll 17 maxpoll 17" >> /opt/micro_ac/tmp/ntp.conf
+echo "server $server minpoll 15 maxpoll 15" >> /opt/micro_ac/tmp/ntp.conf
+
+/ac/ntp/bin/ntpd -c /opt/micro_ac/tmp/ntp.conf

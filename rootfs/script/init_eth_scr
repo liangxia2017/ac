@@ -1,0 +1,57 @@
+#!/bin/sh
+#清空该接口的ip配置
+ip -4 addr flush scope global >/dev/null 2>&1
+#ip -4 route flush scope global >/dev/null 2>&1
+ip -4 neigh flush scope global >/dev/null 2>&1
+pkill -9 pppd
+pkill -9 dhclient
+#清空vlan接口
+for v in $(ip link | cut -s -d "@" -f 1 | cut -s -d ":" -f 2)
+do
+	ip link delete dev $v
+done
+#初始化网卡
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select * from ac_network_config")
+do
+	if [ -z "$n" ];then
+		ip addr add 192.168.1.21/24 dev eth0
+		ip link set dev eth0 up
+		break
+	fi
+	type=`echo $n|cut -d "|" -f 2`
+	if [ $type = 1 ];then
+		network_card=`echo $n|cut -d "|" -f 3`
+    
+		vlanid=`echo $network_card|cut -s -d "." -f 2`
+		if [ -n "$vlanid" ];then
+			card=`echo $network_card|cut -s -d "." -f 1`
+			ip link add link $card name $network_card type vlan id $vlanid
+		fi
+		ip link set $network_card up
+		get_ip_method=`echo $n|cut -d "|" -f 4`
+		case $get_ip_method in
+			1)	
+					ip=`echo $n|cut -d "|" -f 5`
+					mask=`echo $n|cut -d "|" -f 6`
+					if [ -n $ip ];then
+					ip addr add $ip/$mask dev $network_card
+					fi
+					;;
+			2)	
+					pkill -9 dhclient
+					dhclient -4 $network_card &
+					;;
+			3)	
+					pppoe_user=`echo $n|cut -d "|" -f 8`
+					pppoe_psw=`echo $n|cut -d "|" -f 9`
+					echo "$pppoe_user  * $pppoe_psw  *" > /etc/ppp/chap-secrets
+					echo "$pppoe_user  * $pppoe_psw  *" > /etc/ppp/pap-secrets
+					echo "user \"$pppoe_user\"" > /etc/ppp/options
+					echo "plugin rp-pppoe.so" >> /etc/ppp/options
+					pppd $network_card
+					;;	
+		esac
+	fi
+done
+
+

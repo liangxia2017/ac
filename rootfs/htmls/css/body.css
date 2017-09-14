@@ -1,0 +1,46 @@
+body{
+	font-size:12px;
+	line-height:1.9;
+	text-align:center;
+}
+
+form.cmxform label.error, label.error {
+	color: red;
+	font-style: normal;
+}
+
+
+.title {
+/*    font-family:"Times New Roman",Georgia,Serif;*/
+	font-size: 28px;
+	letter-spacing:4px;
+	width: 96%;
+	font-weight:bold;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 3px;
+	padding-top: 10px;
+	padding-bottom: 3px;
+	color:#0099CC;
+}
+
+
+.bt{
+border: solid 1px #cccccc;
+background: #f9f9f9;
+}
+
+
+.th {
+	font-size: 18px;
+	letter-spacing:4px;
+
+}
+
+a:visited{
+	color:blue;
+}
+
+select{
+	font-size:12px;
+}

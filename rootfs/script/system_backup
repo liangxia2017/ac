@@ -1,0 +1,12 @@
+#!/bin/sh
+. /opt/micro_ac/tmp/ac_sysinfo.conf
+runtime_nums=`ls -d /opt/micro_ac/runtime_* |wc -l` > /dev/null 2>&1
+if [ $runtime_nums -lt 5 ];then
+
+	date=`date +%Y%m%d%H%M`
+	restore_point="runtime_"${date}"_"$SOFT_VER"/"
+	cp -Rf /opt/micro_ac/runtime/  /opt/micro_ac/$restore_point 
+	exit 0
+else
+	exit 255
+fi

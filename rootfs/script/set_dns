@@ -1,0 +1,13 @@
+#!/bin/sh
+
+n=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select dns1,dns2 from ac_basic_conf"`
+dns1=`echo $n|cut -d "|" -f 1`
+dns2=`echo $n|cut -d "|" -f 2`
+if [ ! -z $dns1 ];then
+	rm -rf /etc/resolv.conf
+	echo "nameserver $dns1" > /etc/resolv.conf
+fi
+
+if [ ! -z $dns2 ];then
+	echo "nameserver $dns2" >> /etc/resolv.conf
+fi

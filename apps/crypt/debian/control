@@ -1,0 +1,18 @@
+Source: crypt-xor
+Section: utils
+Priority: optional
+Maintainer: Udo Wolter <uwp@dicke-aersche.de>
+Build-Depends: debhelper (>> 3.0.0)
+Standards-Version: 3.5.2
+
+Package: crypt-xor
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: encryption/decryption by using the XOR algorithm
+ A simple program to encrypt and decrypt files using the XOR algorithm.
+ .
+ It reads a file/stdin/console-option and a keyfile/stdin/console-option
+ and xors them. The result goes to the standard output/output-file.
+ The key file should be equal or longer than the file which should be
+ crypted (for obvious reasons: the longer the safer). Optionally an
+ offset can be given on which byte of the key the crypting begins.

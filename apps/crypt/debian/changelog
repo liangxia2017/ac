@@ -1,0 +1,9 @@
+crypt-xor (2.1-2) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Oliver Kurth <oku@masqmail.cx>  Wed, 21 Aug 2002 20:34:03 +0200
+
+  * Changing gcc options to largefile to remove 2 GB limit
+
+ -- Udo Wolter <uwp@dicke-aersche.de> Tue, 28 Feb 2006 07:33:15 +0100

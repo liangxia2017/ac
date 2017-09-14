@@ -1,0 +1,49 @@
+#!/bin/sh
+#DO为0时，删除用户，DO为1时，增加用户，2是查询用户
+DO=$1
+USER=$2
+
+#TIME为空时，永久添加。为0时，查阅用户是否存在。大于0时为上网时限
+TIME=$3
+
+for n in $(ipset list -n)
+do
+	if [ -z "$n" ];then
+		break
+	fi
+	
+	if [ $DO -eq 2 ];then
+		ipset test "$n" $USER
+		if [ $? = 0 ];then
+			exit 128
+		fi
+		continue
+	fi
+	
+	if [ -z $TIME ];then
+	id=`echo $n|cut -d "|" -f 1`
+	
+	if [ $DO = 0 ];then
+		ipset -! del $n $USER
+	else if [ $DO = 1 ];then
+		ipset -! add $n $USER
+		fi
+	fi
+		continue
+	fi
+		
+	if [ $TIME -ge 0 ];then
+		#echo $n |grep authed
+		#if [ $? = 0 ];then
+		#	continue
+		#fi
+		id=`echo $n|cut -d "|" -f 1`
+		if [ $DO = 0 ];then
+			ipset -! del $n $USER
+		else if [ $DO = 1 ];then
+				ipset -! add $n $USER timeout $TIME
+			fi
+		fi
+		continue
+	fi
+done

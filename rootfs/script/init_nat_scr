@@ -1,0 +1,17 @@
+#!/bin/sh
+sysctl net.ipv4.ip_forward=1
+iptables -t nat -F POSTROUTING
+for n in $(/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select source_ip,source_mask,output_eth from nat")
+do
+	if [ -z "$n" ];then
+		break
+	fi
+	sip=`echo $n|cut -d "|" -f 1`
+	smask=`echo $n|cut -d "|" -f 2`
+	output=`echo $n|cut -d "|" -f 3`
+	
+	iptables -t nat -A POSTROUTING -s $sip/$smask -o $output -j MASQUERADE
+	if [ $? != 0 ];then
+		exit -1
+	fi
+done

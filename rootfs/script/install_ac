@@ -1,0 +1,22 @@
+#!/bin/sh
+#½¨Á¢¶ÌÁ´½Ó
+if [ ! -h /ac ];then
+ ln -sf -T /opt/micro_ac/runtime/ /ac
+fi
+
+cat /etc/rc.d/rc.local | grep ac_start
+if [ $? != 0 ];then
+	chmod +x /etc/rc.d/rc.local
+	echo "/ac/script/ac_start" >> /etc/rc.d/rc.local
+fi
+
+sed -i "s/enforcing/disabled/g" /etc/selinux/config
+systemctl disable firewalld.service
+systemctl disable NetworkManager.service
+
+#cat /etc/ld.so.conf |grep ac_lib.conf
+#if [ $? != 0 ];then
+#	echo "include /ac/config/ac_lib.conf" >> /etc/ld.so.conf
+#	ldconfig
+#fi
+

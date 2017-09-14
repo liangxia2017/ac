@@ -1,0 +1,29 @@
+#!/bin/sh
+
+capwapd_switch=1
+
+while true
+do
+
+#升级或还原
+. /opt/micro_ac/tmp/system_upg.conf
+if [ ! -z $IMG_NAME ];then
+	/opt/micro_ac/tmp/ac_update
+	rm /opt/micro_ac/tmp/system_upg*
+	touch /opt/micro_ac/tmp/system_upg.conf
+	IMG_NAME=""
+fi
+if [ ! -z $RESTORE_NAME ];then
+	/opt/micro_ac/tmp/system_restore $RESTORE_NAME
+	rm /opt/micro_ac/tmp/system_upg*
+	touch /opt/micro_ac/tmp/system_upg.conf
+	RESTORE_NAME=""
+fi
+
+pidof capwapd
+if [ $? -eq 1 ] && [ $capwapd_switch -eq 1 ]; then
+ /ac/sbin/capwapd -B
+fi
+
+sleep 90
+done

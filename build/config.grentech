@@ -1,0 +1,18 @@
+#add default config item
+#export AC_PATH=/opt/ac
+export GR_INSTALL_ROOT=/opt/micro_ac/runtime
+export WEBTOOLS=web_tools
+export SQLITE=sqlite-autoconf-3080403
+export DHCPD=dhcp-4.2.7
+export BRCTL=bridge-utils-1.4
+export IMG_TOOL=crypt-xor-2.1
+export GRENTECH_IMG_KEY=wireless
+export OPENSSL=openssl-1.0.1j
+export APACHE=httpd-2.2.29
+export LIBXML=libxml2-2.7.8
+export PHP=php-5.3.29
+export HTMLS=htmls
+export BFTPD=bftpd
+export CAPWAPD=capwapd
+export NTP=ntp-4.2.8p3
+

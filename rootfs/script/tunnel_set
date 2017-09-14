@@ -1,0 +1,18 @@
+#!/bin/sh
+sw=$1
+id=$2
+client_ip=$3
+
+/usr/sbin/ip l2tp del tunnel tunnel_id $id
+if [ $sw = "0" ];then
+	exit
+fi
+
+local_ip=`/ac/sqlite/bin/sqlite3 /ac/db/ac.s3db "select tunnel_in_ip from ac_basic_conf"`
+if [ -z "$local_ip" ];then
+	exit
+fi
+	/usr/sbin/ip l2tp add tunnel tunnel_id $id peer_tunnel_id $id encap ip local $local_ip remote $client_ip
+ 	/usr/sbin/ip l2tp add session name l2tp$id tunnel_id $id session_id $id peer_session_id $id
+ 	/usr/sbin/ip link set l2tp$id up mtu 1446 
+ 	/usr/sbin/ip link set l2tp$id master br_tunnel	

@@ -1,0 +1,15 @@
+1、app通知后台发出手机短信验证码，验证码存于后台session中，成功返回页面内容0，否则返回1
+http://192.168.20.19/sms/sms.php?tel=15914174162
+2、核对app验证码与后台验证码是否一致，code参数即是用户填写的验证码，成功返回页面内容0，否则返回1
+http://192.168.20.19/sms/sms_validate.php?code=1703
+3、app向后台发送用户注册信息，成功返回页面内容0，否则返回1
+http://192.168.20.19/vip/vip_regist.php?regist_username=xia&regist_password=liang
+4、app向后台发送用户登录信息，成功返回页面内容0，否则返回1
+http://192.168.20.19/vip/vip_validate.php?vip_username=xia&vip_password=liang
+5、app向lte-fi发送权限放开指令，其ip地址若app无法获取自身网关，直接发往192.168.1.1也可以。
+http://192.168.1.1/cgi-bin/sta_auth_success.cgi?vip=13901234567
+6、app退出登录时，向lte-fi发送权限关闭指令
+http://192.168.1.1/cgi-bin/sta_auth_quit.cgi
+
+
+注：app发布时，后台的地址为efreewifi.org，调试时后台ip地址待定，我们正在搭建测试环境

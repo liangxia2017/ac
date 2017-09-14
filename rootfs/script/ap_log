@@ -1,0 +1,9 @@
+#!/bin/sh
+ap=$1
+event=$2
+
+day=`date -d today +"%y%m%d"`
+min=`date -d today +"%H:%M:%S"`
+
+echo "$min,$event" >> /opt/micro_ac/ap_log/$ap/$day.log
+

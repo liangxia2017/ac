@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ ! -d /opt/micro_ac/$1 ];then
+	exit -1
+fi
+
+mv -f /opt/micro_ac/runtime /tmp
+
+cp -rf /opt/micro_ac/$1 /opt/micro_ac/runtime
+
+rm -rf /tmp/runtime
+systemctl reboot
+reboot
