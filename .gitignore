@@ -103,7 +103,7 @@ Makefile.in
 /apps/httpd-2.2.29/
 #/apps/libxml2-2.7.8/
 #/apps/nginx-1.8.1/
-/apps/ntp-4.2.8p3/
+#/apps/ntp-4.2.8p3/
 #/apps/openssl-1.0.1j/
 #/apps/pcre-8.35/
 /apps/php-5.4.45/
