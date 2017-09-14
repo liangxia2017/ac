@@ -1,0 +1,108 @@
+*.o
+.*.swp
+*.rej
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# http://www.gnu.org/software/automake
+
+Makefile.in
+/ar-lib
+/mdate-sh
+/py-compile
+/test-driver
+/ylwrap
+
+# http://www.gnu.org/software/autoconf
+
+/autom4te.cache
+/autoscan.log
+/autoscan-*.log
+/aclocal.m4
+/compile
+/config.guess
+/config.h.in
+/config.sub
+/configure.scan
+/depcomp
+/install-sh
+/missing
+/stamp-h1
+
+# https://www.gnu.org/software/libtool/
+
+/ltmain.sh
+
+# http://www.gnu.org/software/texinfo
+
+/texinfo.tex
+
+/*
+!/rootfs
+!/build
+!/apps/
+!.gitignore
+
+/apps/dhcp-4.2.7/
+/apps/dhcpd-pools-2.25/
+/apps/httpd-2.2.29/
+/apps/libxml2-2.7.8/
+/apps/nginx-1.8.1/
+/apps/ntp-4.2.8p3/
+/apps/openssl-1.0.1j/
+/apps/pcre-8.35/
+/apps/php-5.4.45/
+/apps/sqlite-autoconf-3080403/
+/apps/sshpass-1.05/
+/apps/web_tools/
