@@ -5,6 +5,7 @@
 .deps/
 doc/
 man/
+*.phpt
 
 # Prerequisites
 *.d
@@ -106,7 +107,7 @@ Makefile.in
 #/apps/ntp-4.2.8p3/
 #/apps/openssl-1.0.1j/
 #/apps/pcre-8.35/
-/apps/php-5.4.45/
+#/apps/php-5.4.45/
 #/apps/sqlite-autoconf-3080403/
 #/apps/sshpass-1.05/
 /apps/web_tools/htmls
