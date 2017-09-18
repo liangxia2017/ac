@@ -1705,7 +1705,7 @@ configure:8818: gcc -o conftest -g -O2   conftest.c  >&5
 conftest.c:40:6: warning: conflicting types for built-in function 'cos' [enabled by default]
  char cos ();
       ^
-/tmp/cc2JQsGH.o: In function `main':
+/tmp/ccyfrHwh.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:44: undefined reference to `cos'
 collect2: error: ld returned 1 exit status
 configure:8818: $? = 1
@@ -1939,7 +1939,7 @@ configure:9447: $? = 0
 configure:9447: result: yes
 configure:9462: checking for getclock
 configure:9462: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccL3lzLr.o: In function `main':
+/tmp/ccMxC5sk.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:79: undefined reference to `getclock'
 collect2: error: ld returned 1 exit status
 configure:9462: $? = 1
@@ -2037,7 +2037,7 @@ configure:9462: $? = 0
 configure:9462: result: yes
 configure:9462: checking for strlcpy
 configure:9462: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccQqno9Y.o: In function `main':
+/tmp/cciBZYYI.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:81: undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 configure:9462: $? = 1
@@ -2129,7 +2129,7 @@ configure: failed program was:
 configure:9462: result: no
 configure:9462: checking for strlcat
 configure:9462: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccdgcVT7.o: In function `main':
+/tmp/ccoX04fT.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:81: undefined reference to `strlcat'
 collect2: error: ld returned 1 exit status
 configure:9462: $? = 1
@@ -2221,7 +2221,7 @@ configure: failed program was:
 configure:9462: result: no
 configure:9475: checking for library containing snprintb
 configure:9506: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccFdEIil.o: In function `main':
+/tmp/cc7gW1y4.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:58: undefined reference to `snprintb'
 collect2: error: ld returned 1 exit status
 configure:9506: $? = 1
@@ -2288,7 +2288,7 @@ configure: failed program was:
 |   return 0;
 | }
 configure:9506: gcc -o conftest -g -O2   conftest.c -lutil   >&5
-/tmp/ccIPHeas.o: In function `main':
+/tmp/ccuzrvr0.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:58: undefined reference to `snprintb'
 collect2: error: ld returned 1 exit status
 configure:9506: $? = 1
@@ -3281,7 +3281,7 @@ configure:10511: $? = 0
 configure:10511: result: yes
 configure:10669: checking for _beginthread
 configure:10669: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccH2WIxF.o: In function `main':
+/tmp/ccHtcMM1.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:109: undefined reference to `_beginthread'
 collect2: error: ld returned 1 exit status
 configure:10669: $? = 1
@@ -3433,7 +3433,7 @@ conftest.c: In function 'task':
 conftest.c:92:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
   return (void *) (p == NULL);
          ^
-/tmp/cc0CdWSs.o: In function `main':
+/tmp/cctna0pv.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:123: undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
 configure:11057: $? = 1
@@ -3763,7 +3763,7 @@ configure:13957: $? = 0
 configure:13957: result: yes
 configure:13957: checking for thr_yield
 configure:13957: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccYJXN0h.o: In function `main':
+/tmp/ccFYWwT2.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:114: undefined reference to `thr_yield'
 collect2: error: ld returned 1 exit status
 configure:13957: $? = 1
@@ -3916,7 +3916,7 @@ configure:14123: $? = 0
 configure:14123: result: yes
 configure:14123: checking for thr_setconcurrency
 configure:14123: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccGJDt6h.o: In function `main':
+/tmp/cck30G5E.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:119: undefined reference to `thr_setconcurrency'
 collect2: error: ld returned 1 exit status
 configure:14123: $? = 1
@@ -4046,7 +4046,7 @@ configure: failed program was:
 configure:14123: result: no
 configure:14123: checking for thr_getconcurrency
 configure:14123: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccltL0Rr.o: In function `main':
+/tmp/ccOmAyoP.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:119: undefined reference to `thr_getconcurrency'
 collect2: error: ld returned 1 exit status
 configure:14123: $? = 1
@@ -4176,7 +4176,7 @@ configure: failed program was:
 configure:14123: result: no
 configure:14136: checking for pthread_kill_other_threads_np
 configure:14136: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccjpYZHF.o: In function `main':
+/tmp/ccrpUNXW.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:119: undefined reference to `pthread_kill_other_threads_np'
 collect2: error: ld returned 1 exit status
 configure:14136: $? = 1
@@ -5342,7 +5342,7 @@ configure:15627: checking if we have solaris privileges
 configure:15661: result: 
 configure:15730: checking for library containing res_init
 configure:15761: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccaUaieC.o: In function `main':
+/tmp/ccmlqXof.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:115: undefined reference to `res_init'
 collect2: error: ld returned 1 exit status
 configure:15761: $? = 1
@@ -5466,7 +5466,7 @@ configure: failed program was:
 |   return 0;
 | }
 configure:15761: gcc -o conftest -g -O2   conftest.c -lresolv   >&5
-/tmp/cclfw0QB.o: In function `main':
+/tmp/ccSUnSyj.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:115: undefined reference to `res_init'
 collect2: error: ld returned 1 exit status
 configure:15761: $? = 1
@@ -5604,7 +5604,7 @@ configure:15791: checking for resolv.h
 configure:15791: result: yes
 configure:15817: checking for res_init
 configure:15817: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccXD2Bf1.o: In function `main':
+/tmp/ccZASLsF.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:143: undefined reference to `res_init'
 collect2: error: ld returned 1 exit status
 configure:15817: $? = 1
@@ -6792,7 +6792,7 @@ configure: failed program was:
 configure:16092: result: no
 configure:16109: checking for library containing MD5Init
 configure:16140: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cc8H1dVU.o: In function `main':
+/tmp/ccivU9FM.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:124: undefined reference to `MD5Init'
 collect2: error: ld returned 1 exit status
 configure:16140: $? = 1
@@ -7191,7 +7191,7 @@ configure: failed program was:
 configure:16157: result: no
 configure:16168: checking for MD5Init
 configure:16168: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccezvMvf.o: In function `main':
+/tmp/cctJRPzS.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:147: undefined reference to `MD5Init'
 collect2: error: ld returned 1 exit status
 configure:16168: $? = 1
@@ -11111,7 +11111,7 @@ configure:24041: $? = 0
 configure:24041: result: yes
 configure:24047: checking for _doprnt
 configure:24047: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccg9a5Hk.o: In function `main':
+/tmp/ccCkOdmb.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:199: undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:24047: $? = 1
@@ -11399,7 +11399,7 @@ conftest.c: In function 'main':
 conftest.c:185:16: warning: initialization makes pointer from integer without a cast [enabled by default]
     char * pz = pathfind( getenv( "PATH" ), "sh", "x" );
                 ^
-/tmp/ccjlFhcL.o: In function `main':
+/tmp/ccuu5Irh.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/conftest.c:185: undefined reference to `pathfind'
 collect2: error: ld returned 1 exit status
 configure:24700: $? = 1
@@ -11594,7 +11594,7 @@ configure: failed program was:
 | }
 configure:24712: result: no
 configure:24725: checking whether /dev/zero is readable device
-configure:24741: result: crw-rw-rw- 1 root root 1, 5 Jul 30 16:32 /dev/zero
+configure:24741: result: crw-rw-rw- 1 root root 1, 5 Aug 2 01:02 /dev/zero
 configure:24754: checking whether we have a functional realpath(3C)
 configure:24778: gcc -o conftest -g -O2   conftest.c  >&5
 configure:24778: $? = 0
@@ -13645,7 +13645,7 @@ libopts_cv_run_fopen_text=yes
 libopts_cv_run_pathfind=no
 libopts_cv_run_realpath=yes
 libopts_cv_run_strftime=yes
-libopts_cv_test_dev_zero='crw-rw-rw- 1 root root 1, 5 Jul 30 16:32 /dev/zero'
+libopts_cv_test_dev_zero='crw-rw-rw- 1 root root 1, 5 Aug 2 01:02 /dev/zero'
 libopts_cv_with_libregex=yes
 libopts_cv_with_libregex_cflags=
 libopts_cv_with_libregex_libs=
@@ -14195,20 +14195,3 @@ target_alias=''
 #define HAVE_SOCKET 1
 
 configure: exit 0
-
-## ---------------------- ##
-## Running config.status. ##
-## ---------------------- ##
-
-This file was extended by sntp config.status 4.2.8p3, which was
-generated by GNU Autoconf 2.69.  Invocation command line was
-
-  CONFIG_FILES    = 
-  CONFIG_HEADERS  = 
-  CONFIG_LINKS    = 
-  CONFIG_COMMANDS = 
-  $ ./config.status --file=sntp.1+:./sntp.man.in
-
-on localhost.localdomain
-
-config.status:1475: creating sntp.1+

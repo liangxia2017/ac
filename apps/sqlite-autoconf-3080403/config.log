@@ -387,7 +387,7 @@ configure:12200: $? = 0
 configure:12200: result: yes
 configure:12200: checking for fullfsync
 configure:12200: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cci2cPQe.o: In function `main':
+/tmp/cc1s1NN9.o: In function `main':
 /opt/micro_ac/apps/sqlite-autoconf-3080403/conftest.c:59: undefined reference to `fullfsync'
 collect2: error: ld returned 1 exit status
 configure:12200: $? = 1
@@ -558,7 +558,7 @@ configure: failed program was:
 configure:12293: result: no
 configure:12319: checking for library containing tgetent
 configure:12350: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccf8W0cd.o: In function `main':
+/tmp/ccCJQaw0.o: In function `main':
 /opt/micro_ac/apps/sqlite-autoconf-3080403/conftest.c:40: undefined reference to `tgetent'
 collect2: error: ld returned 1 exit status
 configure:12350: $? = 1
@@ -753,7 +753,7 @@ configure: failed program was:
 configure:12367: result: no
 configure:12375: checking for library containing readline
 configure:12406: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccRnhMUx.o: In function `main':
+/tmp/ccsxE0Es.o: In function `main':
 /opt/micro_ac/apps/sqlite-autoconf-3080403/conftest.c:40: undefined reference to `readline'
 collect2: error: ld returned 1 exit status
 configure:12406: $? = 1
@@ -852,7 +852,7 @@ configure: failed program was:
 configure:12423: result: no
 configure:12435: checking for readline
 configure:12435: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccyNKYVS.o: In function `main':
+/tmp/cctu11zG.o: In function `main':
 /opt/micro_ac/apps/sqlite-autoconf-3080403/conftest.c:63: undefined reference to `readline'
 collect2: error: ld returned 1 exit status
 configure:12435: $? = 1
@@ -926,7 +926,7 @@ configure: failed program was:
 configure:12435: result: no
 configure:12463: checking for library containing pthread_create
 configure:12494: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccqGbGN2.o: In function `main':
+/tmp/cc6Op6rS.o: In function `main':
 /opt/micro_ac/apps/sqlite-autoconf-3080403/conftest.c:40: undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
 configure:12494: $? = 1
@@ -979,7 +979,7 @@ configure:12494: $? = 0
 configure:12511: result: -lpthread
 configure:12534: checking for library containing dlopen
 configure:12565: gcc -o conftest -g -O2   conftest.c -lpthread  >&5
-/tmp/cck9aPMm.o: In function `main':
+/tmp/cczEPKfZ.o: In function `main':
 /opt/micro_ac/apps/sqlite-autoconf-3080403/conftest.c:40: undefined reference to `dlopen'
 collect2: error: ld returned 1 exit status
 configure:12565: $? = 1

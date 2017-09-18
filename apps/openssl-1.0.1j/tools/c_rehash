@@ -6,8 +6,8 @@
 
 my $openssl;
 
-my $dir = "/opt/micro_ac/apps/nginx-1.8.1/../openssl-1.0.1j//.openssl/ssl";
-my $prefix = "/opt/micro_ac/apps/nginx-1.8.1/../openssl-1.0.1j//.openssl";
+my $dir = "/opt/micro_ac/runtime/openssl/ssl";
+my $prefix = "/opt/micro_ac/runtime/openssl";
 
 if(defined $ENV{OPENSSL}) {
 	$openssl = $ENV{OPENSSL};

@@ -44,8 +44,8 @@ extern "C" {
 #ifndef OPENSSL_THREADS
 # define OPENSSL_THREADS
 #endif
-#ifndef OPENSSL_NO_DYNAMIC_ENGINE
-# define OPENSSL_NO_DYNAMIC_ENGINE
+#ifndef OPENSSL_NO_STATIC_ENGINE
+# define OPENSSL_NO_STATIC_ENGINE
 #endif
 
 /* The OPENSSL_NO_* macros are also defined as NO_* if the application
@@ -94,8 +94,8 @@ extern "C" {
 
 #if !(defined(VMS) || defined(__VMS)) /* VMS uses logical names instead */
 #if defined(HEADER_CRYPTLIB_H) && !defined(OPENSSLDIR)
-#define ENGINESDIR "/opt/micro_ac/apps/nginx-1.8.1/../openssl-1.0.1j//.openssl/lib/engines"
-#define OPENSSLDIR "/opt/micro_ac/apps/nginx-1.8.1/../openssl-1.0.1j//.openssl/ssl"
+#define ENGINESDIR "/opt/micro_ac/runtime/openssl/lib/engines"
+#define OPENSSLDIR "/opt/micro_ac/runtime/openssl/ssl"
 #endif
 #endif
 

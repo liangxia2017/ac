@@ -582,7 +582,7 @@ configure:12526: checking for zlib.h
 configure:12526: result: yes
 configure:12542: checking for library containing inflateEnd
 configure:12573: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/ccMwLkZv.o: In function `main':
+/tmp/cckwOsGa.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:41: undefined reference to `inflateEnd'
 collect2: error: ld returned 1 exit status
 configure:12573: $? = 1
@@ -1655,7 +1655,7 @@ configure:13596: $? = 0
 configure:13596: result: yes
 configure:13596: checking for arc4random
 configure:13596: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/ccuK4XtI.o: In function `main':
+/tmp/ccGzeqcl.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:101: undefined reference to `arc4random'
 collect2: error: ld returned 1 exit status
 configure:13596: $? = 1
@@ -1767,7 +1767,7 @@ configure: failed program was:
 configure:13596: result: no
 configure:13596: checking for arc4random_buf
 configure:13596: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/ccytIGMS.o: In function `main':
+/tmp/cc6TJtup.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:101: undefined reference to `arc4random_buf'
 collect2: error: ld returned 1 exit status
 configure:13596: $? = 1
@@ -1927,7 +1927,7 @@ configure:13596: $? = 0
 configure:13596: result: yes
 configure:13596: checking for issetugid
 configure:13596: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/ccR9VBSO.o: In function `main':
+/tmp/ccz6XidL.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:113: undefined reference to `issetugid'
 collect2: error: ld returned 1 exit status
 configure:13596: $? = 1
@@ -2051,7 +2051,7 @@ configure: failed program was:
 configure:13596: result: no
 configure:13596: checking for mach_absolute_time
 configure:13596: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/cc1wZpMX.o: In function `main':
+/tmp/cc0pGXYS.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:113: undefined reference to `mach_absolute_time'
 collect2: error: ld returned 1 exit status
 configure:13596: $? = 1
@@ -2219,7 +2219,7 @@ configure:13596: $? = 0
 configure:13596: result: yes
 configure:13596: checking for strlcpy
 configure:13596: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/ccSKX6jG.o: In function `main':
+/tmp/cc6tz7B5.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:124: undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 configure:13596: $? = 1
@@ -2418,7 +2418,7 @@ configure:13978: $? = 0
 configure:13978: result: yes
 configure:14062: checking for port_create
 configure:14062: gcc -o conftest -g -O2 -Wall -fno-strict-aliasing   conftest.c  >&5
-/tmp/ccicyydq.o: In function `main':
+/tmp/ccF4NVVj.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:139: undefined reference to `port_create'
 collect2: error: ld returned 1 exit status
 configure:14062: $? = 1
@@ -6112,7 +6112,7 @@ conftest.c:132:22: warning: null argument where non-null required (argument 3) [
 conftest.c:130:27: warning: 'th' is used uninitialized in this function [-Wuninitialized]
  pthread_t th; pthread_join(th, 0);
                            ^
-/tmp/ccYrC4Jr.o: In function `main':
+/tmp/ccAkB1zH.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:130: undefined reference to `pthread_join'
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:131: undefined reference to `__pthread_register_cancel'
 /opt/micro_ac/apps/ntp-4.2.8p3/sntp/libevent/conftest.c:132: undefined reference to `pthread_create'

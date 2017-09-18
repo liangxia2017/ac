@@ -1567,7 +1567,7 @@ configure:6345: $? = 0
 configure:6362: result: none required
 configure:6373: checking for strlcat
 configure:6373: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cc0QTkJE.o: In function `main':
+/tmp/cccGiYMm.o: In function `main':
 /opt/micro_ac/apps/dhcp-4.2.7/conftest.c:71: undefined reference to `strlcat'
 collect2: error: ld returned 1 exit status
 configure:6373: $? = 1

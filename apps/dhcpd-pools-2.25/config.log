@@ -664,7 +664,7 @@ configure:6672: checking host system type
 configure:6685: result: x86_64-unknown-linux-gnu
 configure:6846: checking for _set_invalid_parameter_handler
 configure:6846: gcc -std=gnu11 -o conftest -DGNULIB_defined_struct_option   conftest.c  >&5
-/tmp/ccJJT8ZR.o: In function `main':
+/tmp/cceoAqNi.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `_set_invalid_parameter_handler'
 collect2: error: ld returned 1 exit status
 configure:6846: $? = 1
@@ -753,7 +753,7 @@ configure:6846: $? = 0
 configure:6846: result: yes
 configure:6846: checking for fpurge
 configure:6846: gcc -std=gnu11 -o conftest -DGNULIB_defined_struct_option   conftest.c  >&5
-/tmp/ccDl19h8.o: In function `main':
+/tmp/ccBTyHyS.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `fpurge'
 collect2: error: ld returned 1 exit status
 configure:6846: $? = 1
@@ -2299,7 +2299,7 @@ configure:12745: checking whether fflush works on input streams
 configure:12819: result: no
 configure:12852: checking for _fseeki64
 configure:12852: gcc -std=gnu11 -o conftest -DGNULIB_defined_struct_option   conftest.c  >&5
-/tmp/ccHhRpoc.o: In function `main':
+/tmp/ccN9GZcS.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `_fseeki64'
 collect2: error: ld returned 1 exit status
 configure:12852: $? = 1

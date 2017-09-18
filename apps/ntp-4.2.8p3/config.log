@@ -3395,7 +3395,7 @@ configure:19361: $? = 0
 configure:19361: result: yes
 configure:19367: checking for _doprnt
 configure:19367: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cctE0fcM.o: In function `main':
+/tmp/cc0yQGRA.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:108: undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:19367: $? = 1
@@ -5461,7 +5461,7 @@ configure:21232: gcc -o conftest -g -O2   conftest.c  >&5
 conftest.c:101:6: warning: conflicting types for built-in function 'cos' [enabled by default]
  char cos ();
       ^
-/tmp/ccHtkN6J.o: In function `main':
+/tmp/ccPVPu0S.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:105: undefined reference to `cos'
 collect2: error: ld returned 1 exit status
 configure:21232: $? = 1
@@ -5628,7 +5628,7 @@ configure:21861: $? = 0
 configure:21861: result: yes
 configure:21876: checking for getclock
 configure:21876: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cctHXprl.o: In function `main':
+/tmp/ccIstaJE.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:140: undefined reference to `getclock'
 collect2: error: ld returned 1 exit status
 configure:21876: $? = 1
@@ -5787,7 +5787,7 @@ configure:21876: $? = 0
 configure:21876: result: yes
 configure:21876: checking for strlcpy
 configure:21876: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccCbjDr5.o: In function `main':
+/tmp/cca1P1ie.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:142: undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 configure:21876: $? = 1
@@ -5940,7 +5940,7 @@ configure: failed program was:
 configure:21876: result: no
 configure:21876: checking for strlcat
 configure:21876: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccEgZOU9.o: In function `main':
+/tmp/ccdHlDlq.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:142: undefined reference to `strlcat'
 collect2: error: ld returned 1 exit status
 configure:21876: $? = 1
@@ -6093,7 +6093,7 @@ configure: failed program was:
 configure:21876: result: no
 configure:21889: checking for library containing snprintb
 configure:21920: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccpwGt3l.o: In function `main':
+/tmp/ccuxbRiA.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:119: undefined reference to `snprintb'
 collect2: error: ld returned 1 exit status
 configure:21920: $? = 1
@@ -6221,7 +6221,7 @@ configure: failed program was:
 |   return 0;
 | }
 configure:21920: gcc -o conftest -g -O2   conftest.c -lutil   >&5
-/tmp/ccN4phHv.o: In function `main':
+/tmp/ccbKgJjK.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:119: undefined reference to `snprintb'
 collect2: error: ld returned 1 exit status
 configure:21920: $? = 1
@@ -7711,7 +7711,7 @@ configure:22925: $? = 0
 configure:22925: result: yes
 configure:23083: checking for _beginthread
 configure:23083: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccUlZXMf.o: In function `main':
+/tmp/ccI8HEfZ.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:170: undefined reference to `_beginthread'
 collect2: error: ld returned 1 exit status
 configure:23083: $? = 1
@@ -7924,7 +7924,7 @@ conftest.c: In function 'task':
 conftest.c:153:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
   return (void *) (p == NULL);
          ^
-/tmp/cc5Gu5FS.o: In function `main':
+/tmp/ccD7Gs6B.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:184: undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
 configure:23471: $? = 1
@@ -8376,7 +8376,7 @@ configure:26371: $? = 0
 configure:26371: result: yes
 configure:26371: checking for thr_yield
 configure:26371: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccyL5xFM.o: In function `main':
+/tmp/ccQWjvRf.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:175: undefined reference to `thr_yield'
 collect2: error: ld returned 1 exit status
 configure:26371: $? = 1
@@ -8590,7 +8590,7 @@ configure:26537: $? = 0
 configure:26537: result: yes
 configure:26537: checking for thr_setconcurrency
 configure:26537: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccanWnbK.o: In function `main':
+/tmp/ccMWTcfg.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:180: undefined reference to `thr_setconcurrency'
 collect2: error: ld returned 1 exit status
 configure:26537: $? = 1
@@ -8781,7 +8781,7 @@ configure: failed program was:
 configure:26537: result: no
 configure:26537: checking for thr_getconcurrency
 configure:26537: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccMMJSsP.o: In function `main':
+/tmp/ccnKnXCp.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:180: undefined reference to `thr_getconcurrency'
 collect2: error: ld returned 1 exit status
 configure:26537: $? = 1
@@ -8972,7 +8972,7 @@ configure: failed program was:
 configure:26537: result: no
 configure:26550: checking for pthread_kill_other_threads_np
 configure:26550: gcc -o conftest -g -O2   conftest.c  -pthread  >&5
-/tmp/ccjfJwvY.o: In function `main':
+/tmp/ccjNbNXo.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:180: undefined reference to `pthread_kill_other_threads_np'
 collect2: error: ld returned 1 exit status
 configure:26550: $? = 1
@@ -10626,7 +10626,7 @@ configure:28041: checking if we have solaris privileges
 configure:28075: result: 
 configure:28144: checking for library containing res_init
 configure:28175: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cc1GlbIE.o: In function `main':
+/tmp/ccc1fS6f.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:176: undefined reference to `res_init'
 collect2: error: ld returned 1 exit status
 configure:28175: $? = 1
@@ -10811,7 +10811,7 @@ configure: failed program was:
 |   return 0;
 | }
 configure:28175: gcc -o conftest -g -O2   conftest.c -lresolv   >&5
-/tmp/ccUs1r2O.o: In function `main':
+/tmp/ccfGRlqn.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:176: undefined reference to `res_init'
 collect2: error: ld returned 1 exit status
 configure:28175: $? = 1
@@ -11010,7 +11010,7 @@ configure:28205: checking for resolv.h
 configure:28205: result: yes
 configure:28231: checking for res_init
 configure:28231: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccYWozob.o: In function `main':
+/tmp/cc1mlRQB.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:204: undefined reference to `res_init'
 collect2: error: ld returned 1 exit status
 configure:28231: $? = 1
@@ -12466,7 +12466,7 @@ configure: failed program was:
 configure:28506: result: no
 configure:28523: checking for library containing MD5Init
 configure:28554: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccJpyeTN.o: In function `main':
+/tmp/ccxHf0dU.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:185: undefined reference to `MD5Init'
 collect2: error: ld returned 1 exit status
 configure:28554: $? = 1
@@ -13048,7 +13048,7 @@ configure: failed program was:
 configure:28571: result: no
 configure:28582: checking for MD5Init
 configure:28582: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccBPohze.o: In function `main':
+/tmp/cce2MOSg.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:208: undefined reference to `MD5Init'
 collect2: error: ld returned 1 exit status
 configure:28582: $? = 1
@@ -25615,7 +25615,7 @@ configure: failed program was:
 configure:30867: result: no
 configure:30900: checking for arc4random_buf
 configure:30900: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/cck1bcVF.o: In function `main':
+/tmp/cc6gwxG0.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:255: undefined reference to `arc4random_buf'
 collect2: error: ld returned 1 exit status
 configure:30900: $? = 1
@@ -25896,7 +25896,7 @@ configure:30999: $? = 0
 configure:30999: result: yes
 configure:30999: checking for getbootfile
 configure:30999: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccRVDhcp.o: In function `main':
+/tmp/ccBBDK3r.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:258: undefined reference to `getbootfile'
 collect2: error: ld returned 1 exit status
 configure:30999: $? = 1
@@ -26195,7 +26195,7 @@ configure:31114: $? = 0
 configure:31114: result: yes
 configure:31114: checking for plock
 configure:31114: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccSAHAfV.o: In function `main':
+/tmp/ccomKvOu.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:266: undefined reference to `plock'
 collect2: error: ld returned 1 exit status
 configure:31114: $? = 1
@@ -26484,7 +26484,7 @@ configure:31114: $? = 0
 configure:31114: result: yes
 configure:31114: checking for rtprio
 configure:31114: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccL4YeWA.o: In function `main':
+/tmp/ccLYipV5.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:269: undefined reference to `rtprio'
 collect2: error: ld returned 1 exit status
 configure:31114: $? = 1
@@ -26800,7 +26800,7 @@ configure:31159: checking for strchr
 configure:31159: result: yes
 configure:31185: checking for timer_create
 configure:31185: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccjWg71a.o: In function `main':
+/tmp/ccN6IUgg.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:279: undefined reference to `timer_create'
 collect2: error: ld returned 1 exit status
 configure:31185: $? = 1
@@ -28448,7 +28448,7 @@ configure:34439: checking if we want to use OpenSSL's crypto random (if availabl
 configure:34449: result: yes
 configure:34458: checking for RAND_bytes
 configure:34458: gcc -o conftest -g -O2   conftest.c   >&5
-/tmp/cce0da8H.o: In function `main':
+/tmp/cc2v6Ecd.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:329: undefined reference to `RAND_bytes'
 collect2: error: ld returned 1 exit status
 configure:34458: $? = 1
@@ -28788,7 +28788,7 @@ configure: failed program was:
 configure:34458: result: no
 configure:34458: checking for RAND_poll
 configure:34458: gcc -o conftest -g -O2   conftest.c   >&5
-/tmp/ccAPBbXV.o: In function `main':
+/tmp/cclnf92j.o: In function `main':
 /opt/micro_ac/apps/ntp-4.2.8p3/conftest.c:329: undefined reference to `RAND_poll'
 collect2: error: ld returned 1 exit status
 configure:34458: $? = 1
