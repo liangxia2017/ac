@@ -13,10 +13,10 @@ locating_build bftpd_build capwapd_build php_build nginx_build webman_build cryp
  write_block_build dhcpd_pool_build ntp_build img_build portal_img_build
  
 php_build:
-	cd ../apps/$(LIBXML) && ./configure --prefix=$(GR_INSTALL_ROOT)/libxml CFLAGS=-Os && make && make install ;
+	cd ../apps/$(LIBXML) && ./configure --prefix=$(GR_INSTALL_ROOT)/libxml CFLAGS=-Os && make && make install && make clean;
 	cd ../apps/php-5.4.45 && ./configure --prefix=$(GR_INSTALL_ROOT)/php --with-openssl=$(GR_INSTALL_ROOT)/openssl --with-libxml-dir=$(GR_INSTALL_ROOT)/libxml \
 	--enable-sockets --with-curl --with-config-file-path=$(GR_INSTALL_ROOT)/php/lib --enable-fpm CFLAGS=-Os \
-	&& make && make install && cp -f ../php_conf_guoren/* $(GR_INSTALL_ROOT)/php/etc
+	&& make && make install && cp -f ../php_conf_guoren/* $(GR_INSTALL_ROOT)/php/etc && make clean
 	
 php_clean:
 	cd ../apps/$(LIBXML) && make clean ;
@@ -25,24 +25,24 @@ php_clean:
 nginx_build:
 	cd ../apps/nginx-1.8.1 && ./configure --with-http_ssl_module --with-pcre=../pcre-8.35 \
   --with-openssl=../openssl-1.0.1j/ --prefix=$(GR_INSTALL_ROOT)/nginx --with-cc-opt=-Os && make && make install && \
-  cp guoren/* $(GR_INSTALL_ROOT)/nginx/conf
+  cp guoren/* $(GR_INSTALL_ROOT)/nginx/conf && make clean
   
 nginx_clean:
 	cd ../apps/nginx-1.8.1 && make clean;
  
 sshpass_build:
-	cd ../apps/sshpass-1.05 && ./configure --prefix=$(GR_INSTALL_ROOT)/sshpass && make && make install
+	cd ../apps/sshpass-1.05 && ./configure --prefix=$(GR_INSTALL_ROOT)/sshpass && make && make install && make clean
 sshpass_clean:
 	cd ../apps/dhcpd-pools-2.25 && make clean;
  
 dhcpd_pool_build:
-	cd ../apps/dhcpd-pools-2.25 && make clean && ./configure --prefix=$(GR_INSTALL_ROOT)/dhcpd_pool --with-uthash=./lib/ CFLAGS=-DGNULIB_defined_struct_option && make && make install
+	cd ../apps/dhcpd-pools-2.25 && make clean && ./configure --prefix=$(GR_INSTALL_ROOT)/dhcpd_pool --with-uthash=./lib/ CFLAGS=-DGNULIB_defined_struct_option && make && make install && make clean
 	
 dhcpd_pool_clean:
 	cd ../apps/dhcpd-pools-2.25 && make clean;
  
 ntp_build:
-	cd ../apps/$(NTP) && ./configure --prefix=$(GR_INSTALL_ROOT)/ntp && make && make install
+	cd ../apps/$(NTP) && ./configure --prefix=$(GR_INSTALL_ROOT)/ntp && make && make install && make clean
 	
 ntp_clean:
 	cd ../apps/$(NTP) && make clean;
@@ -79,7 +79,7 @@ webman_clean:
 	cd ../apps/$(WEBTOOLS)/cgi-bin/library && make clean  ; 
 			
 sqlite_build:
-	cd ../apps/$(SQLITE) && ./configure --prefix=$(GR_INSTALL_ROOT)/sqlite && make && make install
+	cd ../apps/$(SQLITE) && ./configure --prefix=$(GR_INSTALL_ROOT)/sqlite && make && make install && make clean
 	
 sqlite_clean:
 	cd ../apps/$(SQLITE) && make clean
@@ -109,13 +109,13 @@ httpd_clean:
 	cd ../apps/$(APACHE) && make clean 
 
 dhcpd_build:
-	cd ../apps/$(DHCPD) && ./configure --prefix=$(GR_INSTALL_ROOT)/dhcpd --enable-dhcpv6 && make && make install 
+	cd ../apps/$(DHCPD) && ./configure --prefix=$(GR_INSTALL_ROOT)/dhcpd --enable-dhcpv6 && make && make install && make clean
 	
 dhcpd_clean:
 	cd ../apps/$(DHCPD) && make clean 
 	
 openssl_build:
-	cd ../apps/$(OPENSSL)/ && make clean && ./config shared -fPIC --prefix=$(GR_INSTALL_ROOT)/openssl && make && make install 
+	cd ../apps/$(OPENSSL)/ && make clean && ./config shared -fPIC --prefix=$(GR_INSTALL_ROOT)/openssl && make && make install
 	
 openssl_clean:
 	cd ../apps/$(OPENSSL)/ && make clean ;

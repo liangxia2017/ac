@@ -174,6 +174,7 @@ configure:4227: checking for perl
 configure:4245: found /usr/bin/perl
 configure:4258: result: /usr/bin/perl
 configure:4268: checking for wget
+configure:4286: found /usr/bin/wget
 configure:4299: result: /usr/bin/wget
 configure:4309: checking for xmllint
 configure:4327: found /usr/bin/xmllint
@@ -1434,7 +1435,7 @@ configure:12722: $? = 0
 configure:12722: result: yes
 configure:12722: checking for isnand
 configure:12722: gcc -o conftest -Os   conftest.c  >&5
-/tmp/ccCxLUW2.o: In function `main':
+/tmp/ccedWe3J.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `isnand'
 collect2: error: ld returned 1 exit status
 configure:12722: $? = 1
@@ -1542,7 +1543,7 @@ configure: failed program was:
 configure:12722: result: no
 configure:12722: checking for fp_class
 configure:12722: gcc -o conftest -Os   conftest.c  >&5
-/tmp/ccXxWg2f.o: In function `main':
+/tmp/ccIdyWJT.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `fp_class'
 collect2: error: ld returned 1 exit status
 configure:12722: $? = 1
@@ -1650,7 +1651,7 @@ configure: failed program was:
 configure:12722: result: no
 configure:12722: checking for class
 configure:12722: gcc -o conftest -Os   conftest.c  >&5
-/tmp/cchbTMso.o: In function `main':
+/tmp/ccvlPeb5.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `class'
 collect2: error: ld returned 1 exit status
 configure:12722: $? = 1
@@ -1758,7 +1759,7 @@ configure: failed program was:
 configure:12722: result: no
 configure:12722: checking for fpclass
 configure:12722: gcc -o conftest -Os   conftest.c  >&5
-/tmp/ccw2cGcy.o: In function `main':
+/tmp/cc76aFof.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `fpclass'
 collect2: error: ld returned 1 exit status
 configure:12722: $? = 1
@@ -1884,7 +1885,7 @@ configure:12746: $? = 0
 configure:12746: result: yes
 configure:12746: checking for _stat
 configure:12746: gcc -o conftest -Os   conftest.c  >&5
-/tmp/ccRtWBnh.o: In function `main':
+/tmp/cc1Agt2W.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `_stat'
 collect2: error: ld returned 1 exit status
 configure:12746: $? = 1
@@ -2108,7 +2109,7 @@ conftest.c:106:1: warning: function declaration isn't a prototype [-Wstrict-prot
 conftest.c:115:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp/ccS8bSXM.o: In function `main':
+/tmp/cc2sbc6I.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `shl_load'
 collect2: error: ld returned 1 exit status
 configure:13623: $? = 1
@@ -2352,7 +2353,7 @@ conftest.c:106:1: warning: function declaration isn't a prototype [-Wstrict-prot
 conftest.c:115:1: warning: function declaration isn't a prototype [-Wstrict-prototypes]
  main ()
  ^
-/tmp/ccGz0FQa.o: In function `main':
+/tmp/ccC8qnIQ.o: In function `main':
 conftest.c:(.text.startup+0x4): undefined reference to `dlopen'
 collect2: error: ld returned 1 exit status
 configure:13670: $? = 1
@@ -2734,17 +2735,17 @@ xml_cv_iconv_decl='extern size_t iconv (iconv_t cd,  char * *inbuf, size_t *inby
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/missing --run aclocal-1.11'
+ACLOCAL='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/missing --run aclocal-1.11'
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
 AMDEP_TRUE=''
-AMTAR='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/missing --run tar'
+AMTAR='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/missing --run tar'
 ANSI2KNR=''
 AR='ar'
 AS='as'
-AUTOCONF='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/missing --run autoconf'
-AUTOHEADER='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/missing --run autoheader'
-AUTOMAKE='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/missing --run automake-1.11'
+AUTOCONF='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/missing --run autoconf'
+AUTOHEADER='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/missing --run autoheader'
+AUTOMAKE='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/missing --run automake-1.11'
 AWK='gawk'
 BASE_THREAD_LIBS='-lpthread'
 C14N_OBJ='c14n.c'
@@ -2797,7 +2798,7 @@ LIBXML_VERSION_NUMBER='20708'
 LIPO=''
 LN_S='ln -s'
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/missing --run makeinfo'
+MAKEINFO='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/missing --run makeinfo'
 MKDIR_P='/usr/bin/mkdir -p'
 MODULE_EXTENSION='.so'
 MODULE_PLATFORM_LIBS='-ldl'
@@ -2830,7 +2831,7 @@ RDL_LIBS=''
 READER_TEST='Readertests'
 REBUILD_DOCS_FALSE=''
 REBUILD_DOCS_TRUE='#'
-RELDATE='Mon Sep 12 2016'
+RELDATE='Tue Aug  2 2016'
 RM='/usr/bin/rm'
 SED='/usr/bin/sed'
 SET_MAKE=''
@@ -2946,7 +2947,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /opt/micro_ac/apps/libxml2-2.7.8/install-sh'
+install_sh='${SHELL} /opt/micro_ac.bak/apps/libxml2-2.7.8/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'

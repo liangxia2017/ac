@@ -1,12 +1,9 @@
 *.o
 .*.swp
 *.rej
-doc/
-man/
-*.phpt
-
 # Prerequisites
 *.d
+*.phpt
 
 # Object files
 *.o
