@@ -1,0 +1,14 @@
+#! /bin/sh
+#
+# Created by configure
+
+CFLAGS='-Os' \
+'./configure' \
+'--prefix=/opt/micro_ac/runtime/php' \
+'--with-openssl=/opt/micro_ac/runtime/openssl' \
+'--with-libxml-dir=/opt/micro_ac/runtime/libxml' \
+'--enable-sockets' \
+'--with-curl' \
+'--with-config-file-path=/opt/micro_ac/runtime/php/lib' \
+'--enable-fpm' \
+"$@"
