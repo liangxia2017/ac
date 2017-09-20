@@ -23,7 +23,7 @@ php_clean:
 	cd ../apps/php-5.4.45 && make clean ;
 	
 nginx_build:
-	cd ../apps/nginx-1.8.1 && ./buildconf --force && ./configure --with-http_ssl_module --with-pcre=../pcre-8.35 \
+	cd ../apps/nginx-1.8.1 && ./configure --with-http_ssl_module --with-pcre=../pcre-8.35 \
   --with-openssl=../openssl-1.0.1j/ --prefix=$(GR_INSTALL_ROOT)/nginx --with-cc-opt=-Os && make && make install && \
   cp guoren/* $(GR_INSTALL_ROOT)/nginx/conf && make clean
   
