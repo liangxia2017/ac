@@ -407,7 +407,7 @@ Copyright (C) 2013 Free Software Foundation, Inc.
 This config.status script is free software; the Free Software Foundation
 gives unlimited permission to copy, distribute and modify it."
 
-ac_pwd='/opt/micro_ac/apps/dhcpd-pools-2.25'
+ac_pwd='/opt/micro_ac.bak/apps/dhcpd-pools-2.25'
 srcdir='.'
 INSTALL='/usr/bin/install -c'
 MKDIR_P='/usr/bin/mkdir -p'
@@ -1536,12 +1536,12 @@ S["AWK"]="gawk"
 S["MKDIR_P"]="/usr/bin/mkdir -p"
 S["INSTALL_STRIP_PROGRAM"]="$(install_sh) -c -s"
 S["STRIP"]="strip"
-S["install_sh"]="${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/install-sh"
-S["MAKEINFO"]="${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing makeinfo"
-S["AUTOHEADER"]="${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing autoheader"
-S["AUTOMAKE"]="${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing automake-1.99a"
-S["AUTOCONF"]="${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing autoconf"
-S["ACLOCAL"]="${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing aclocal-1.99a"
+S["install_sh"]="${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/install-sh"
+S["MAKEINFO"]="${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing makeinfo"
+S["AUTOHEADER"]="${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing autoheader"
+S["AUTOMAKE"]="${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing automake-1.99a"
+S["AUTOCONF"]="${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing autoconf"
+S["ACLOCAL"]="${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing aclocal-1.99a"
 S["VERSION"]="2.25"
 S["PACKAGE"]="dhcpd-pools"
 S["CYGPATH_W"]="echo"

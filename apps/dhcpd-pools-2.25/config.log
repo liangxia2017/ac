@@ -664,7 +664,7 @@ configure:6672: checking host system type
 configure:6685: result: x86_64-unknown-linux-gnu
 configure:6846: checking for _set_invalid_parameter_handler
 configure:6846: gcc -std=gnu11 -o conftest -DGNULIB_defined_struct_option   conftest.c  >&5
-/tmp/cceoAqNi.o: In function `main':
+/tmp/ccnwy0u3.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `_set_invalid_parameter_handler'
 collect2: error: ld returned 1 exit status
 configure:6846: $? = 1
@@ -753,7 +753,7 @@ configure:6846: $? = 0
 configure:6846: result: yes
 configure:6846: checking for fpurge
 configure:6846: gcc -std=gnu11 -o conftest -DGNULIB_defined_struct_option   conftest.c  >&5
-/tmp/ccBTyHyS.o: In function `main':
+/tmp/ccMtyKnp.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `fpurge'
 collect2: error: ld returned 1 exit status
 configure:6846: $? = 1
@@ -2299,7 +2299,7 @@ configure:12745: checking whether fflush works on input streams
 configure:12819: result: no
 configure:12852: checking for _fseeki64
 configure:12852: gcc -std=gnu11 -o conftest -DGNULIB_defined_struct_option   conftest.c  >&5
-/tmp/ccN9GZcS.o: In function `main':
+/tmp/ccAr0bzw.o: In function `main':
 conftest.c:(.text+0xa): undefined reference to `_fseeki64'
 collect2: error: ld returned 1 exit status
 configure:12852: $? = 1
@@ -5524,7 +5524,7 @@ lt_cv_to_tool_file_cmd=func_convert_file_noop
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing aclocal-1.99a'
+ACLOCAL='${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing aclocal-1.99a'
 ALARM_CRIT='90'
 ALARM_WARN='80'
 AMDEPBACKSLASH='\'
@@ -5537,9 +5537,9 @@ AM_DEFAULT_VERBOSITY='1'
 AM_V='$(V)'
 AR='ar'
 ARFLAGS='cru'
-AUTOCONF='${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing autoconf'
-AUTOHEADER='${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing autoheader'
-AUTOMAKE='${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing automake-1.99a'
+AUTOCONF='${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing autoconf'
+AUTOHEADER='${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing autoheader'
+AUTOMAKE='${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing automake-1.99a'
 AWK='gawk'
 CC='gcc -std=gnu11'
 CCDEPMODE='depmode=gcc3'
@@ -6065,7 +6065,7 @@ LOCALE_JA='ja_JP'
 LOCALE_ZH_CN='zh_CN.GB18030'
 LTLIBINTL=''
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/missing makeinfo'
+MAKEINFO='${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/missing makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/usr/bin/mkdir -p'
 NETINET_IN_H=''
@@ -6310,7 +6310,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /opt/micro_ac/apps/dhcpd-pools-2.25/build-aux/install-sh'
+install_sh='${SHELL} /opt/micro_ac.bak/apps/dhcpd-pools-2.25/build-aux/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 lispdir='${datarootdir}/emacs/site-lisp'
