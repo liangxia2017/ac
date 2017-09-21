@@ -46,7 +46,7 @@ rm -rf "$RPM_BUILD_ROOT"
 - added defined variables to the top of the file.
 - set the config file in the %files section so it won't
   be over written on upgrades.
-- added a default attributes to the %files section.
+- added a default attributes to the %files section..
 - redid the summery section to bring it in line with "rpm
   spec file standards" (an oxymoron if ever there was one).
 - changed the depricated "Copyright" into "License".
